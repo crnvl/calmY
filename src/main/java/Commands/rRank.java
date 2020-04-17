@@ -17,19 +17,36 @@ public class rRank implements Command {
     public void action(String[] args, MessageReceivedEvent event) {
 
         String balance;
-        if(CounterEnv.propExist("xp" + event.getAuthor().getId())) {
-            balance = CounterEnv.getValue("xp" + event.getAuthor().getId());
+        if(event.getMessage().getMentionedUsers().size() >= 1) {
+            if(CounterEnv.propExist("xp" + event.getMessage().getMentionedUsers().get(0).getId())) {
+                balance = CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId());
+            }else {
+                balance = "0";
+            }
+
+            event.getTextChannel().sendMessage(
+                    new EmbedBuilder()
+                            .setTitle("XP for " + event.getMessage().getMentionedUsers().get(0).getAsTag() + "!")
+                            .setColor(Color.PINK)
+                            .addField("Raw XP", "**" + balance + "**", true)
+                            .build()
+            ).queue();
         }else {
-            balance = "0";
+            if(CounterEnv.propExist("xp" + event.getAuthor().getId())) {
+                balance = CounterEnv.getValue("xp" + event.getAuthor().getId());
+            }else {
+                balance = "0";
+            }
+
+            event.getTextChannel().sendMessage(
+                    new EmbedBuilder()
+                            .setTitle("Your current XP, " + event.getAuthor().getAsTag() + "!")
+                            .setColor(Color.PINK)
+                            .addField("Raw XP", "**" + balance + "**", true)
+                            .build()
+            ).queue();
         }
 
-        event.getTextChannel().sendMessage(
-                new EmbedBuilder()
-                        .setTitle("Your current XP, " + event.getAuthor().getAsTag() + "!")
-                        .setColor(Color.PINK)
-                        .addField("Raw XP", "**" + balance + "**", true)
-                        .build()
-        ).queue();
 
     }
 
