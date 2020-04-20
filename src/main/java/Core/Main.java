@@ -1,3 +1,5 @@
+package Core;
+
 import Commands.Run.CommandHandler;
 import Commands.Run.CommandListener;
 import Commands.rRank;
