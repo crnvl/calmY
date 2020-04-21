@@ -27,6 +27,9 @@ public class rMeta implements Command {
                         break;
                     case "removerole":
                         event.getGuild().getController().removeRolesFromMember(event.getGuild().getMemberById(args[1]), event.getGuild().getRoleById(args[2])).queue();
+                    case "pin":
+                            event.getGuild().getTextChannelById(args[1]).pinMessageById(args[2]).queue();
+                        break;
 
                 }
             }

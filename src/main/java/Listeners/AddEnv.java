@@ -19,6 +19,10 @@ public class AddEnv extends ListenerAdapter {
         if(event.getMessage().getContentRaw().contains("69")){
             event.getMessage().addReaction(event.getJDA().getGuildById("547449487908667402").getEmoteById("701944909812203654")).queue();
         }
+        if(event.getMessage().getContentRaw().contains("Walex") || event.getMessage().getContentRaw().contains("walex") || event.getMessage().getContentRaw().contains("WALEX")){
+            event.getMessage().addReaction("\uD83D\uDC33").queue();
+        }
+
 
 
         //XP
