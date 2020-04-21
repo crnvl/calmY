@@ -38,7 +38,7 @@ public class Main {
 
         //Status
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.setGame(Game.playing(Config.PREFIX + "rank"));
+        builder.setGame(Game.watching("WALEX Inc. | " + Config.PREFIX + "rank"));
 
         builder.addEventListener(new AddEnv());
         builder.addEventListener(new CommandListener());

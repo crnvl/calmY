@@ -29,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Core/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
+            <state relative-caret-position="601">
+              <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Commands/rMeta.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
@@ -130,7 +130,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/Sets/Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/RemoveRolePls.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/rRank.java" />
         <option value="$PROJECT_DIR$/src/main/java/Sets/MetaEnv.java" />
         <option value="$PROJECT_DIR$/meta.properties" />
@@ -141,6 +140,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Listeners/Whaleboard.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/rPin.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/rMeta.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Core/Main.java" />
       </list>
     </option>
   </component>
@@ -316,7 +316,7 @@
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26589826" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26589826" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -325,7 +325,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32869297" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23511215" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23511215" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -437,16 +437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Core/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sets/CounterEnv.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
@@ -522,6 +512,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#executed#0;class#rMeta#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Core/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
