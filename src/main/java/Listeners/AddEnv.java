@@ -1,30 +1,35 @@
 package Listeners;
 
 import Sets.CounterEnv;
+import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
+import net.dv8tion.jda.core.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
+import java.util.Date;
 import java.util.Random;
 
 public class AddEnv extends ListenerAdapter {
 
     public void onMessageReceived(MessageReceivedEvent event) {
 
-        event.getChannel().sendTyping().queue();
+        //REACTION
 
         if(event.getMessage().getContentRaw().contains("69")){
             event.getMessage().addReaction(event.getJDA().getGuildById("547449487908667402").getEmoteById("701944909812203654")).queue();
         }
 
+
+        //XP
+
         if(event.getAuthor().isBot() || event.getChannel().getId().contains("697140726664003694") || event.getChannel().getId().contains("465950068990672907")) {
 
-            //DO NOTHING
         }else {
-            Random r = new Random();
-            int y = r.nextInt(250) + 1;
 
-            if (y > 100) {
-                int xp, xpNew, multiplier, addXP = 10;
+            Random r = new Random();
+            int y = r.nextInt(25) + 10;
+
+                int xp, xpNew, multiplier, addXP = y;
                 if (CounterEnv.propExist("xp" + event.getAuthor().getId())) {
                     xp = Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId()));
                         multiplier = 1;
@@ -36,17 +41,15 @@ public class AddEnv extends ListenerAdapter {
                 } else {
                     CounterEnv.addKey("xp" + event.getAuthor().getId(), "50");
                 }
-            }
         }
 
 
-        if (event.getAuthor().isBot()) {
+        //LEVELROLES
 
-        }else {
+        if (event.getAuthor().isBot()) { }else {
             int userLevel;
             int xp = Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId()));
             userLevel = (int) Math.floor((Math.sqrt(2 * xp - 1975)+5)/10);
-            System.out.println(userLevel);
 
             try {
                 if (CounterEnv.propExist("xp" + event.getAuthor().getId())) {
@@ -76,4 +79,39 @@ public class AddEnv extends ListenerAdapter {
 
     }
 
+    Date voiceJoin, voiceLeave;
+    long voiceTime, voiceXP, addXP;
+    long seconds, minutes, hours;
+
+    @Override
+    public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
+        voiceJoin = new Date();
+        CounterEnv.addKey("vcJ" + event.getMember().getUser().getId(), String.valueOf(voiceJoin.getTime()));
+    }
+
+    @Override
+    public void onGuildVoiceLeave(GuildVoiceLeaveEvent event) {
+        voiceLeave = new Date();
+
+        voiceTime = voiceLeave.getTime() - Long.parseLong(CounterEnv.getValue("vcJ" + event.getMember().getUser().getId()));
+
+        voiceXP = voiceTime / 100;
+
+        if(CounterEnv.propExist("xp" + event.getMember().getUser().getId())) {
+            addXP = voiceXP + Integer.parseInt(CounterEnv.getValue("xp" + event.getMember().getUser().getId()));
+            CounterEnv.addKey("xp" + event.getMember().getUser().getId(), String.valueOf(addXP));
+        }else {
+            CounterEnv.addKey("xp" + event.getMember().getUser().getId(), String.valueOf(voiceXP));
+        }
+
+        seconds = voiceTime / 1000;
+        minutes = seconds / 60; //minutes, seconds
+        seconds = seconds % 60;
+        hours = minutes / 60; //h, m, s
+        minutes = minutes % 60;
+
+
+
+        event.getMember().getUser().openPrivateChannel().queue(channel -> channel.sendMessage("Your recent Voice Chat Time: ``" + hours + "h " + minutes + "m " + seconds + "s " + "``! A total of ``" + voiceXP + "`` XP has been added to your Account!").queue());
+    }
 }
