@@ -1,6 +1,7 @@
 package Listeners;
 
 import Sets.CounterEnv;
+import Sets.MetaEnv;
 import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.core.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
@@ -27,7 +28,7 @@ public class AddEnv extends ListenerAdapter {
         }else {
 
             Random r = new Random();
-            int y = r.nextInt(25) + 10;
+            int y = r.nextInt(Integer.parseInt(MetaEnv.getValue("msgxp"))) + 10;
 
                 int xp, xpNew, multiplier, addXP = y;
                 if (CounterEnv.propExist("xp" + event.getAuthor().getId())) {
@@ -95,7 +96,7 @@ public class AddEnv extends ListenerAdapter {
 
         voiceTime = voiceLeave.getTime() - Long.parseLong(CounterEnv.getValue("vcJ" + event.getMember().getUser().getId()));
 
-        voiceXP = voiceTime / 100;
+        voiceXP = voiceTime / Integer.parseInt(MetaEnv.getValue("voicexp"));
 
         if(CounterEnv.propExist("xp" + event.getMember().getUser().getId())) {
             addXP = voiceXP + Integer.parseInt(CounterEnv.getValue("xp" + event.getMember().getUser().getId()));
