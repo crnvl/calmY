@@ -16,44 +16,73 @@ public class rRank implements Command {
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
 
-        int balance, level;
-        if(event.getMessage().getMentionedUsers().size() >= 1) {
-            if(CounterEnv.propExist("xp" + event.getMessage().getMentionedUsers().get(0).getId())) {
-                balance = Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId()));
+
+            int xp, level;
+            if(event.getMessage().getMentionedUsers().size() >= 1) {
+                if(CounterEnv.propExist("xp" + event.getMessage().getMentionedUsers().get(0).getId())) {
+                    xp = Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId()));
+                }else {
+                    xp = 0;
+                }
+
+                double userLevel;
+                double  userNextLevelPercentage;
+                float USERXPINPUT = xp;
+
+                //formula:    (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10
+
+                userLevel = Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
+                userNextLevelPercentage = (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10 - Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
+
+                if(Double.isNaN(userLevel)) {
+                    userLevel = 0;
+                }
+
+                int percent = (int) Math.floor(userNextLevelPercentage * 100);
+
+                event.getTextChannel().sendMessage(
+                        new EmbedBuilder()
+                                .setTitle("XP for " + event.getMessage().getMentionedUsers().get(0).getAsTag() + "!")
+                                .setColor(Color.PINK)
+                                .addField("Raw XP", "**" + xp + "**", true)
+                                .addField("Level", "**" + userLevel + "**", true)
+                                .setFooter("Level Completion: " + percent + "%", null)
+                                .setThumbnail(event.getMessage().getMentionedUsers().get(0).getAvatarUrl())
+                                .build()
+                ).queue();
             }else {
-                balance = 0;
+                if(CounterEnv.propExist("xp" + event.getAuthor().getId())) {
+                    xp = Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId()));
+                }else {
+                    xp = 0;
+                }
+
+                double userLevel;
+                double  userNextLevelPercentage;
+                float USERXPINPUT = xp;
+
+                //formula:    (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10
+
+                userLevel = Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
+                userNextLevelPercentage = (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10 - Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
+
+                if(Double.isNaN(userLevel)) {
+                    userLevel = 0;
+                }
+
+                int percent = (int) Math.floor(userNextLevelPercentage * 100);
+
+                event.getTextChannel().sendMessage(
+                        new EmbedBuilder()
+                                .setTitle("Your current XP, " + event.getAuthor().getAsTag() + "!")
+                                .setColor(Color.PINK)
+                                .addField("Raw XP", "**" + xp + "**", true)
+                                .addField("Level", "**" + userLevel + "**", true)
+                                .setFooter("Level Completion: " + percent + "%", null)
+                                .setThumbnail(event.getAuthor().getAvatarUrl())
+                                .build()
+                ).queue();
             }
-
-            level = balance / 1000;
-
-            event.getTextChannel().sendMessage(
-                    new EmbedBuilder()
-                            .setTitle("XP for " + event.getMessage().getMentionedUsers().get(0).getAsTag() + "!")
-                            .setColor(Color.PINK)
-                            .addField("Raw XP", "**" + balance + "**", true)
-                            .addField("Level", "**" + level + "**", true)
-                            .build()
-            ).queue();
-        }else {
-            if(CounterEnv.propExist("xp" + event.getAuthor().getId())) {
-                balance = Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId()));
-            }else {
-                balance = 0;
-            }
-
-            level = balance / 1000;
-
-            event.getTextChannel().sendMessage(
-                    new EmbedBuilder()
-                            .setTitle("Your current XP, " + event.getAuthor().getAsTag() + "!")
-                            .setColor(Color.PINK)
-                            .addField("Raw XP", "**" + balance + "**", true)
-                            .addField("Level", "**" + level + "**", true)
-                            .build()
-            ).queue();
-        }
-
-
     }
 
     @Override
