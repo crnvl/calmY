@@ -13,7 +13,7 @@ public class rMeta implements Command {
     public void action(String[] args, MessageReceivedEvent event) {
 
         if(event.getAuthor().getId().contains("265849018662387712")) {
-            if(args.length != 2) {
+            if(args.length < 2) {
                 event.getChannel().sendMessage("Insufficent Arguments").queue();
             }else {
                 switch (args[0]) {
@@ -25,6 +25,9 @@ public class rMeta implements Command {
                         MetaEnv.addKey("voicexp", args[1]);
                         event.getChannel().sendMessage("Successfully changed ``voicexp`` to ``" + args[1] + "``!").queue();
                         break;
+                    case "removerole":
+                        event.getGuild().getController().removeRolesFromMember(event.getGuild().getMemberById(args[1]), event.getGuild().getRoleById(args[2])).queue();
+
                 }
             }
         }
