@@ -6,6 +6,8 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.awt.*;
 
+import static java.lang.Math.round;
+
 public class rRank implements Command {
 
     @Override
@@ -31,7 +33,7 @@ public class rRank implements Command {
 
                 //formula:    (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10
 
-                userLevel = Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
+                userLevel = round((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
                 userNextLevelPercentage = (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10 - Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
 
                 if(Double.isNaN(userLevel)) {
@@ -45,7 +47,7 @@ public class rRank implements Command {
                                 .setTitle("XP for " + event.getMessage().getMentionedUsers().get(0).getAsTag() + "!")
                                 .setColor(Color.PINK)
                                 .addField("Raw XP", "**" + xp + "**", true)
-                                .addField("Level", "**" + userLevel + "**", true)
+                                .addField("Level", "**" + round(userLevel) + "**", true)
                                 .setFooter("Level Completion: " + percent + "%", null)
                                 .setThumbnail(event.getMessage().getMentionedUsers().get(0).getAvatarUrl())
                                 .build()
@@ -63,7 +65,7 @@ public class rRank implements Command {
 
                 //formula:    (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10
 
-                userLevel = Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
+                userLevel = round(Math.sqrt(2 * USERXPINPUT - 1975)+5)/10;
                 userNextLevelPercentage = (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10 - Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
 
                 if(Double.isNaN(userLevel)) {
@@ -77,7 +79,7 @@ public class rRank implements Command {
                                 .setTitle("Your current XP, " + event.getAuthor().getAsTag() + "!")
                                 .setColor(Color.PINK)
                                 .addField("Raw XP", "**" + xp + "**", true)
-                                .addField("Level", "**" + userLevel + "**", true)
+                                .addField("Level", "**" + round(userLevel) + "**", true)
                                 .setFooter("Level Completion: " + percent + "%", null)
                                 .setThumbnail(event.getAuthor().getAvatarUrl())
                                 .build()
