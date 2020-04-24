@@ -42,12 +42,33 @@ public class rRank implements Command {
 
                 int percent = (int) Math.floor(userNextLevelPercentage * 100);
 
+
+                //LEADERBOARD
+                int ranking = 1;
+
+                for (int j = 0; j < event.getGuild().getMembers().size(); j++)
+                {
+                    if(CounterEnv.propExist("xp" + event.getGuild().getMembers().get(j).getUser().getId()))
+                    {
+                        if(!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getMessage().getMentionedUsers().get(0).getId()))
+                        {
+                            if(Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId())))
+                            {
+
+                                ranking++;
+                            }
+                        }
+                    }
+                }
+
+
                 event.getTextChannel().sendMessage(
                         new EmbedBuilder()
                                 .setTitle("XP for " + event.getMessage().getMentionedUsers().get(0).getAsTag() + "!")
                                 .setColor(Color.PINK)
                                 .addField("Raw XP", "**" + xp + "**", true)
                                 .addField("Level", "**" + round(userLevel) + "**", true)
+                                .addField("Global Ranking", "**#" + ranking + "**", true)
                                 .setFooter("Level Completion: " + percent + "%", null)
                                 .setThumbnail(event.getMessage().getMentionedUsers().get(0).getAvatarUrl())
                                 .build()
@@ -74,12 +95,33 @@ public class rRank implements Command {
 
                 int percent = (int) Math.floor(userNextLevelPercentage * 100);
 
+
+                //LEADERBOARD
+                int ranking = 1;
+
+                    for (int j = 0; j < event.getGuild().getMembers().size(); j++)
+                    {
+                        if(CounterEnv.propExist("xp" + event.getGuild().getMembers().get(j).getUser().getId()))
+                        {
+                            if(!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getAuthor().getId()))
+                            {
+                                if(Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId())))
+                                {
+
+                                    ranking++;
+                                }
+                            }
+                        }
+                    }
+
+
                 event.getTextChannel().sendMessage(
                         new EmbedBuilder()
                                 .setTitle("Your current XP, " + event.getAuthor().getAsTag() + "!")
                                 .setColor(Color.PINK)
                                 .addField("Raw XP", "**" + xp + "**", true)
                                 .addField("Level", "**" + round(userLevel) + "**", true)
+                                .addField("Global Ranking", "**#" + ranking + "**", true)
                                 .setFooter("Level Completion: " + percent + "%", null)
                                 .setThumbnail(event.getAuthor().getAvatarUrl())
                                 .build()

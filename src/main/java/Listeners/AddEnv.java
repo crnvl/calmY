@@ -58,7 +58,8 @@ public class AddEnv extends ListenerAdapter {
 
             try {
                 if (CounterEnv.propExist("xp" + event.getAuthor().getId())) {
-                    if (userLevel == 1) {
+                    if (userLevel >= 1) {
+                        event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById("702162834041339914")).complete();
                         event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById("700716789012627598")).complete();
                     }
                     if (userLevel >= 5) {
@@ -75,6 +76,18 @@ public class AddEnv extends ListenerAdapter {
                     }
                     if (userLevel >= 25) {
                         event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById("700718653263315027")).complete();
+                    }
+                    if(userLevel >= 30) {
+                        event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById("702159351506403348")).complete();
+                    }
+                    if(userLevel >= 35) {
+                        event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById("702159622278086798")).complete();
+                    }
+                    if(userLevel >= 40) {
+                        event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById("702159871570739251")).complete();
+                    }
+                    if(userLevel >= 69) {
+                        event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById("701091768996986951")).complete();
                     }
                 }
             }catch (Exception e) {

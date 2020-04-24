@@ -2,7 +2,9 @@ package Core;
 
 import Commands.Run.CommandHandler;
 import Commands.Run.CommandListener;
+import Commands.rHelp;
 import Commands.rMeta;
+import Commands.rPin;
 import Commands.rRank;
 import Listeners.AddEnv;
 import Sets.Config;
@@ -51,5 +53,7 @@ public class Main {
     public static void Commands() {
         CommandHandler.commands.put("rank", new rRank());
         CommandHandler.commands.put("meta", new rMeta());
+        CommandHandler.commands.put("pin", new rPin());
+        CommandHandler.commands.put("help", new rHelp());
     }
 }
