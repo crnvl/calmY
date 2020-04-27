@@ -50,12 +50,15 @@ public class rRank implements Command {
                 {
                     if(CounterEnv.propExist("xp" + event.getGuild().getMembers().get(j).getUser().getId()))
                     {
-                        if(!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getMessage().getMentionedUsers().get(0).getId()))
+                        if(!event.getJDA().getUserById(event.getGuild().getMembers().get(j).getUser().getId()).isBot())
                         {
-                            if(Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId())))
+                            if (!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getMessage().getMentionedUsers().get(0).getId()))
                             {
+                                if (Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId())))
+                                {
 
-                                ranking++;
+                                    ranking++;
+                                }
                             }
                         }
                     }
@@ -103,12 +106,15 @@ public class rRank implements Command {
                     {
                         if(CounterEnv.propExist("xp" + event.getGuild().getMembers().get(j).getUser().getId()))
                         {
-                            if(!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getAuthor().getId()))
+                            if(!event.getJDA().getUserById(event.getGuild().getMembers().get(j).getUser().getId()).isBot())
                             {
-                                if(Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId())))
+                                if (!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getAuthor().getId()))
                                 {
+                                    if (Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId())))
+                                    {
 
-                                    ranking++;
+                                        ranking++;
+                                    }
                                 }
                             }
                         }

@@ -30,7 +30,6 @@ public class rMeta implements Command {
                     case "pin":
                             event.getGuild().getTextChannelById(args[1]).pinMessageById(args[2]).queue();
                         break;
-
                 }
             }
         }

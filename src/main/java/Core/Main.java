@@ -1,12 +1,10 @@
 package Core;
 
+import Commands.*;
 import Commands.Run.CommandHandler;
 import Commands.Run.CommandListener;
-import Commands.rHelp;
-import Commands.rMeta;
-import Commands.rPin;
-import Commands.rRank;
 import Listeners.AddEnv;
+import Listeners.Startup;
 import Sets.Config;
 import Sets.CounterEnv;
 import Sets.MetaEnv;
@@ -40,10 +38,11 @@ public class Main {
 
         //Status
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.setGame(Game.watching("WALEX Inc. | " + Config.PREFIX + "rank"));
+        builder.setGame(Game.watching("WALEX Inc. | " + Config.PREFIX + "help"));
 
         builder.addEventListener(new AddEnv());
         builder.addEventListener(new CommandListener());
+        builder.addEventListener(new Startup());
 
         Commands();
 
@@ -55,5 +54,8 @@ public class Main {
         CommandHandler.commands.put("meta", new rMeta());
         CommandHandler.commands.put("pin", new rPin());
         CommandHandler.commands.put("help", new rHelp());
+        CommandHandler.commands.put("emote", new rEmote());
+        CommandHandler.commands.put("voicetime", new rVC());
+        CommandHandler.commands.put("vt", new rVC());
     }
 }
