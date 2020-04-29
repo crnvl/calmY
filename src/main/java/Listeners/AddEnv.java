@@ -51,7 +51,7 @@ public class AddEnv extends ListenerAdapter {
 
         //LEVELROLES
 
-        /*if (event.getAuthor().isBot()) { }else {
+        if (event.getAuthor().isBot()) { }else {
             int userLevel;
             int xp = Integer.parseInt(CounterEnv.getValue("xp" + event.getAuthor().getId()));
             userLevel = (int) Math.floor((Math.sqrt(2 * xp - 1975)+5)/10);
@@ -93,7 +93,7 @@ public class AddEnv extends ListenerAdapter {
             }catch (Exception e) {
                 e.printStackTrace();
             }
-        }*/
+        }
 
     }
 
