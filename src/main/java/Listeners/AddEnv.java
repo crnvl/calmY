@@ -19,8 +19,14 @@ public class AddEnv extends ListenerAdapter {
         if(event.getMessage().getContentRaw().contains("69")){
             event.getMessage().addReaction(event.getJDA().getGuildById("547449487908667402").getEmoteById("701944909812203654")).queue();
         }
-        if(event.getMessage().getContentRaw().contains("Walex") || event.getMessage().getContentRaw().contains("walex") || event.getMessage().getContentRaw().contains("WALEX")){
+        if(event.getMessage().getContentRaw().toLowerCase().contains("walex")){
             event.getMessage().addReaction("\uD83D\uDC33").queue();
+        }
+        if(event.getMessage().getContentRaw().toLowerCase().contains("hime hime")){
+            event.getTextChannel().sendMessage("https://cdn.discordapp.com/attachments/699387997879271436/705217844836827227/1471735421_onoda_suki_suki.gif").queue();
+        }
+        if(event.getMessage().getContentRaw().toLowerCase().contains("hurensohn")){
+            event.getMessage().addReaction(event.getGuild().getEmoteById("701513963770347568")).queue();
         }
 
 

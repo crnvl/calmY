@@ -26,7 +26,9 @@ public class rMeta implements Command {
                         event.getChannel().sendMessage("Successfully changed ``voicexp`` to ``" + args[1] + "``!").queue();
                         break;
                     case "removerole":
-                        event.getGuild().getController().removeRolesFromMember(event.getGuild().getMemberById(args[1]), event.getGuild().getRoleById(args[2])).queue();
+                        if(event.getAuthor().getId().contains("265849018662387712")) {
+                            event.getGuild().getController().removeRolesFromMember(event.getGuild().getMemberById(args[1]), event.getGuild().getRoleById(args[2])).queue();
+                        }
                     case "pin":
                             event.getGuild().getTextChannelById(args[1]).pinMessageById(args[2]).queue();
                         break;

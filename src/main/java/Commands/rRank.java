@@ -21,22 +21,22 @@ public class rRank implements Command {
 
             int xp, level;
             if(event.getMessage().getMentionedUsers().size() >= 1) {
-                if(CounterEnv.propExist("xp" + event.getMessage().getMentionedUsers().get(0).getId())) {
+                if (CounterEnv.propExist("xp" + event.getMessage().getMentionedUsers().get(0).getId())) {
                     xp = Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId()));
-                }else {
+                } else {
                     xp = 0;
                 }
 
                 double userLevel;
-                double  userNextLevelPercentage;
+                double userNextLevelPercentage;
                 float USERXPINPUT = xp;
 
                 //formula:    (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10
 
-                userLevel = round((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
-                userNextLevelPercentage = (Math.sqrt(2 * USERXPINPUT - 1975)+5)/10 - Math.floor((Math.sqrt(2 * USERXPINPUT - 1975)+5)/10);
+                userLevel = round((Math.sqrt(2 * USERXPINPUT - 1975) + 5) / 10);
+                userNextLevelPercentage = (Math.sqrt(2 * USERXPINPUT - 1975) + 5) / 10 - Math.floor((Math.sqrt(2 * USERXPINPUT - 1975) + 5) / 10);
 
-                if(Double.isNaN(userLevel)) {
+                if (Double.isNaN(userLevel)) {
                     userLevel = 0;
                 }
 
@@ -46,16 +46,11 @@ public class rRank implements Command {
                 //LEADERBOARD
                 int ranking = 1;
 
-                for (int j = 0; j < event.getGuild().getMembers().size(); j++)
-                {
-                    if(CounterEnv.propExist("xp" + event.getGuild().getMembers().get(j).getUser().getId()))
-                    {
-                        if(!event.getJDA().getUserById(event.getGuild().getMembers().get(j).getUser().getId()).isBot())
-                        {
-                            if (!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getMessage().getMentionedUsers().get(0).getId()))
-                            {
-                                if (Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId())))
-                                {
+                for (int j = 0; j < event.getGuild().getMembers().size(); j++) {
+                    if (CounterEnv.propExist("xp" + event.getGuild().getMembers().get(j).getUser().getId())) {
+                        if (!event.getJDA().getUserById(event.getGuild().getMembers().get(j).getUser().getId()).isBot()) {
+                            if (!event.getGuild().getMembers().get(j).getUser().getId().contains(event.getMessage().getMentionedUsers().get(0).getId())) {
+                                if (Integer.parseInt(CounterEnv.getValue("xp" + event.getMessage().getMentionedUsers().get(0).getId())) <= Integer.parseInt(CounterEnv.getValue("xp" + event.getGuild().getMembers().get(j).getUser().getId()))) {
 
                                     ranking++;
                                 }
