@@ -21,18 +21,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Commands/Run/CommandHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Commands/Run/CommandListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -59,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Core/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
+            <state relative-caret-position="986">
               <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,6 +57,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Commands/rHelp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Sets/Config.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
@@ -165,7 +165,6 @@
         <option value="$PROJECT_DIR$/meta.properties" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/rEmote.java" />
         <option value="$PROJECT_DIR$/env.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/Commands/rHelp.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/rWW.java" />
         <option value="$PROJECT_DIR$/src/main/java/Core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/rVC.java" />
@@ -173,6 +172,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Listeners/AddEnv.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/rMeta.java" />
         <option value="$PROJECT_DIR$/src/main/java/Sets/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Commands/rHelp.java" />
       </list>
     </option>
   </component>
@@ -356,8 +356,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="2576" height="1426" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29054055" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29292527" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -474,16 +475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Commands/rHelp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="42" column="116" selection-start-line="42" selection-start-column="116" selection-end-line="42" selection-end-column="116" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Commands/rEmote.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -567,16 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Core/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Commands/rRank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
@@ -629,6 +610,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Core/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Commands/rHelp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

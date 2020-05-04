@@ -29,7 +29,7 @@ public class rHelp implements Command {
         hours = minutes / 60; //h, m, s
         minutes = minutes % 60;
         days = hours / 24;
-        hours = hours % 60;
+        hours = hours % 24;
 
 
         event.getTextChannel().sendMessage(
